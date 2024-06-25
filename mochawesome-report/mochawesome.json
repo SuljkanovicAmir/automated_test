@@ -1,0 +1,121 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-25T02:25:36.297Z",
+    "end": "2024-06-25T02:26:16.048Z",
+    "duration": 39751,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8fe34c1d-ab00-429f-a772-3e84a6d76ca8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\amazon.cy.js",
+      "file": "cypress\\e2e\\amazon.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "af23d772-c87a-4763-9dec-20ff6b8d3e53",
+          "title": "Amazon Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should search for a samsung tv",
+              "fullTitle": "Amazon Tests should search for a samsung tv",
+              "timedOut": null,
+              "duration": 11189,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#twotabsearchtextbox\").type(\"samsung tv\");\ncy.get(\"#nav-search-submit-button\").click();\ncy.get(\".s-result-list\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "55d3f23e-23aa-44ca-bcee-92fc9f8b2d18",
+              "parentUUID": "af23d772-c87a-4763-9dec-20ff6b8d3e53",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should add an item to cart",
+              "fullTitle": "Amazon Tests should add an item to cart",
+              "timedOut": null,
+              "duration": 24906,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#twotabsearchtextbox\").type(\"smartphone\");\ncy.get(\"#nav-search-submit-button\").click();\ncy.get('[data-component-type=\"s-search-result\"]').first().find(\".a-link-normal.a-text-normal\").first().click();\ncy.get(\"[data-asin]\").invoke(\"attr\", \"data-asin\").then(dataAsin => {\n  const asin = dataAsin.trim();\n  cy.get(\"#add-to-cart-button\").first().click();\n  cy.get(\"#nav-cart\").click();\n  // Verify that the data-asin attribute matches the added product in the cart\n  cy.get(\"[data-asin]\").invoke(\"attr\", \"data-asin\").should(\"eq\", asin);\n});",
+              "err": {},
+              "uuid": "e1a35f3e-01f5-490c-a629-aef65c813ee3",
+              "parentUUID": "af23d772-c87a-4763-9dec-20ff6b8d3e53",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "55d3f23e-23aa-44ca-bcee-92fc9f8b2d18",
+            "e1a35f3e-01f5-490c-a629-aef65c813ee3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 36095,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
